@@ -1,0 +1,219 @@
+### Memoria del Proceso de Instalación y Configuración
+
+**Nombre de la máquina:** ExParcialTuNombreTuApellido
+
+---
+
+#### 5.1 Configuración de Recursos Físicos del Ordenador
+
+1. **Configuración de la Máquina Virtual:**
+   - **Sistema Operativo:** Ubuntu (64-bit)
+   - **Memoria RAM asignada:** 2048 MB
+   - **Procesadores:** 2 CPUs
+   - **Video Memory:** 128 MB
+   - **Almacenamiento:** Disco virtual de 30 GB
+
+2. **Paso a Paso:**
+   - Abre VirtualBox y selecciona "Nuevo".
+   - Nombra la máquina como `ExParcialTuNombreTuApellido`.
+   - Elige `Linux` como tipo y `Ubuntu (64-bit)` como versión.
+   - Asigna 2048 MB de RAM y 2 CPUs.
+   - Configura la pantalla con 128 MB de memoria de video.
+   
+**Captura de Pantalla:** ![Captura Recursos](captura_recursos.png)
+
+#### 5.2 Creación de un Disco Virtual de 30 GB
+
+1. **Creación del Disco:**
+   - Selecciona "Crear un disco duro virtual ahora".
+   - Elige `VDI (VirtualBox Disk Image)` como tipo de archivo.
+   - Selecciona `Reservado dinámicamente`.
+   - Asigna 30 GB de almacenamiento.
+
+2. **Paso a Paso:**
+   - En el asistente de creación de discos duros, sigue los pasos mencionados y confirma la creación del disco de 30 GB.
+   
+**Captura de Pantalla:** ![Captura Disco](captura_disco.png)
+
+#### 5.3 Adición de una Unidad Óptica con Ubuntu (sin añadir ISO inmediatamente)
+
+1. **Proceso de Adición:**
+   - Después de crear la máquina virtual, ve a `Configuración`.
+   - En la sección `Almacenamiento`, selecciona el controlador `SATA`.
+   - Añade una nueva unidad óptica (Controlador IDE).
+   - Selecciona el disco óptico vacío y asigna la ISO de Ubuntu.
+
+2. **Paso a Paso:**
+   - En `Configuración` > `Almacenamiento`, selecciona el icono del controlador `SATA`.
+   - Haz clic en el icono de CD junto a `Controlador IDE`.
+   - Selecciona `Elegir un disco` y carga la ISO de Ubuntu.
+   
+**Captura de Pantalla:** ![Captura Unidad Óptica](captura_unidad_optica.png)
+
+#### 5.4 Configuración de Nombre de Usuario y PC
+
+1. **Configuración Durante la Instalación:**
+   - Inicia la máquina virtual y selecciona la opción para instalar Ubuntu.
+   - Durante la instalación, configura el nombre de usuario y el nombre del PC.
+   - **Nombre de usuario:** tu nombre y primer apellido en minúsculas (ej: `juanperez`).
+   - **Nombre del PC:** `examen`.
+
+2. **Paso a Paso:**
+   - Sigue las instrucciones del instalador de Ubuntu.
+   - En el paso de configuración de usuario, ingresa el nombre de usuario y el nombre del PC.
+   
+**Captura de Pantalla:** ![Captura Configuración Usuario](captura_configuracion_usuario.png)
+
+#### 5.5 Instalación de Ubuntu con Características Mínimas
+
+1. **Características Mínimas:**
+   - Selecciona la opción de instalación mínima durante el proceso.
+   - Omite la instalación de software adicional.
+   - Utiliza la configuración predeterminada para particionamiento del disco.
+
+2. **Paso a Paso:**
+   - Durante la instalación, elige `Instalación mínima`.
+   - No marques ninguna opción adicional.
+   - Completa la instalación siguiendo las instrucciones en pantalla.
+   
+**Captura de Pantalla:** ![Captura Instalación](captura_instalacion.png)
+
+#### 5.6 Configuración de Espacio Libre con Gparted para Instalar Debian
+
+1. **Arranque en Live Mode:**
+   - Después de instalar Ubuntu, arranca en modo Live con el mismo ISO de Ubuntu.
+   - Abre Gparted desde el menú de aplicaciones.
+
+2. **Proceso en Gparted:**
+   - Selecciona el disco de 30 GB.
+   - Redimensiona la partición de Ubuntu para dejar 10 GB libres al final del disco.
+   - Aplica los cambios y confirma que se ha creado el espacio libre.
+
+3. **Paso a Paso:**
+   - Arranca en modo Live con Ubuntu.
+   - Abre Gparted y selecciona la partición de Ubuntu.
+   - Redimensiona la partición y crea 10 GB de espacio libre al final.
+   - Aplica los cambios.
+   
+**Captura de Pantalla:** ![Captura Gparted](captura_gparted.png)
+
+### Creación del Repositorio Local y Configuración de Git
+
+#### Creación del Repositorio Local
+
+1. **Proceso:**
+   - Crea una carpeta llamada `ExPEntornosTuNombreTuApellido`.
+   - Inicializa un repositorio Git en esta carpeta.
+
+2. **Comandos:**
+   ```bash
+   mkdir ExPEntornosTuNombreTuApellido
+   cd ExPEntornosTuNombreTuApellido
+   git init
+   ```
+
+**Captura de Pantalla:** ![Captura Repositorio](captura_repositorio.png)
+
+#### Cambio de Correo Electrónico del Autor Localmente
+
+1. **Proceso:**
+   - Cambia el correo electrónico del autor localmente.
+
+2. **Comandos:**
+   ```bash
+   git config user.email "examen@tunombre.com"
+   ```
+
+**Captura de Pantalla:** ![Captura Cambio Correo](captura_cambio_correo.png)
+
+#### Cambio del Nombre de la Rama Principal a "exam"
+
+1. **Proceso:**
+   - Cambia el nombre de la rama principal a "exam".
+
+2. **Comandos:**
+   ```bash
+   git branch -M exam
+   ```
+
+**Captura de Pantalla:** ![Captura Cambio Rama](captura_cambio_rama.png)
+
+#### Creación de un Alias para git status
+
+1. **Proceso:**
+   - Crea un alias para agilizar la comprobación del estado del repositorio.
+
+2. **Comandos:**
+   ```bash
+   git config --global alias.st status
+   ```
+
+**Captura de Pantalla:** ![Captura Alias](captura_alias.png)
+
+#### Creación del Commit Raíz con `readme.md`
+
+1. **Proceso:**
+   - Crea un archivo `readme.md` con la información requerida.
+   - Realiza un commit raíz con este archivo.
+
+2. **Comandos:**
+   ```bash
+   echo -e "# Examen parcial ED\n## Nombre y apellidos\n### Fecha y hora actuales" > readme.md
+   git add readme.md
+   git commit -m "Commit raíz con readme.md"
+   ```
+
+**Captura de Pantalla:** ![Captura Commit Raíz](captura_commit_raiz.png)
+
+#### Creación de una Rama para `control-de-versiones`
+
+1. **Proceso:**
+   - Crea una rama con la convención kebab case precedida del acrónimo del repositorio.
+   - Añade el archivo `control-de-versiones` con información incorrecta.
+
+2. **Comandos:**
+   ```bash
+   git checkout -b exp-control-de-versiones
+   echo -e "# Github es un programa que sirve para ejecutar scripts de python\n## Linux es software privativo con licencia freemium, por eso se considera libre\n## La máquina que se considera precedesora del ordenador se llama máquina de software\n## Git está pensado para versionar binarios" > control-de-versiones
+   git add control-de-versiones
+   git commit -m "Añadir archivo control-de-versiones con información incorrecta"
+   ```
+
+**Captura de Pantalla:** ![Captura Rama Control de Versiones](captura_rama_control_de_versiones.png)
+
+#### Corrección de Información en la Rama Principal
+
+1. **Proceso:**
+   - Vuelve a la rama principal y crea `control-de-versiones` con información corregida.
+   - Versiona estos cambios.
+
+2. **Comandos:**
+   ```bash
+   git checkout exam
+   echo -e "# Github es una plataforma para alojamiento de proyectos que utilizan el sistema de control de versiones Git.\n## Linux es software libre con licencia GPL (General Public License).\n## La máquina antecesora de los ordenadores actuales es la máquina de Turing.\n## Git no se lleva bien con los binarios porque está optimizado para trabajar con texto plano, permitiendo un mejor seguimiento y fusión de cambios." > control-de-versiones
+   git add control-de-versiones
+   git commit -m "Añadir archivo control-de-versiones con información corregida"
+   ```
+
+**Captura de Pantalla:** ![Captura Corrección Información](captura_correccion_informacion.png)
+
+#### Fusión de la Rama en "exam"
+
+1. **Proceso:**
+   - Fusiona la rama creada en "exam", solucionando posibles conflictos.
+
+2. **Comandos:**
+   ```bash
+   git merge exp-control-de-versiones
+   ```
+
+**Captura de Pantalla:** ![Captura Fusión](captura_fusion.png)
+
+#### Captura del Árbol de Versiones
+
+1. **Proceso:**
+   - Muestra el árbol de versiones a través de una modificación de git log.
+
+2. **Comandos:**
+   ```bash
+   git log --on
